@@ -1,16 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='layout.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='content.css') }}">
     <script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
     <title>{% if title %} StockX - {{title}} {% else %} StockX {% endif %}</title>
 </head>
 <body>
-    {% block content %}
-    {% endblock content %}
+    <nav>
+        <div id="nav-container">
+            <div class="logo">
+                <a class="navbar-brand" href="#">Logo</a>
+            </div>
+            <div class="navbar-main">
+                <a href="#">Home</a>
+                <a href="#">Brands</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <a href="#">Cart</a>
+                <input class="search" type="text" placeholder="search">
+            </div>
+        </div>
+    </nav>
+    <div id="content">
+        {% block content %}
+        {% endblock content %}
+    </div>
+    <footer>
+        <div class="logo">Logo</div>
+        <div class="navbar-footer">
+            <a href="#">Home</a>
+            <a href="#">Brands</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Cart</a>
+        </div>
+        <div class="social">
+            <i class="fab fa-twitter-square"></i>
+            <i class="fab fa-facebook-square"></i>
+        </div>
+        <p>Copyright &copy; 2021</p>
+    </footer>
+    <script src="https://kit.fontawesome.com/8cb148e688.js" crossorigin="anonymous"></script>
 </body>
 </html>
