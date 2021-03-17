@@ -7,3 +7,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///site.db"
 db = SQLAlchemy(app)
 
 from stockx import routes
+from stockx import models
+
+#db.create_all()
+#db.session.commit()
