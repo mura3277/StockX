@@ -9,5 +9,5 @@ db = SQLAlchemy(app)
 from stockx import routes
 from stockx import models
 
-#db.create_all()
-#db.session.commit()
+db.create_all()
+db.session.commit()

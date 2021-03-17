@@ -1,0 +1,12 @@
+{% extends "layout.jinja" %}
+{% block content %}
+    {% for i in items %}
+        <div class="item">
+            <div class="item-details">
+                <h4 class="item-brand">{{ i.brand }}</h4>
+                <h4 class="item-title">{{ i.name }}</h4>
+                <h4>${{i.price}}</h4>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock content %}

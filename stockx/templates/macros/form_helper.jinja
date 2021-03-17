@@ -1,0 +1,53 @@
+{% set form_def = {
+    "all": "",
+    "submit": "",
+    "image": ""
+} %}
+
+{% macro add_form_def(type, value) %}
+    {% set _ = form_def.update({type: value}) %}
+{% endmacro %}
+
+{% macro render_form(form) %}
+    <form method="POST" action="" enctype="multipart/form-data" id="{{ form.kw.id }}" class="{{ form.kw.class }} {{ kwargs.class }}">
+        {% if form.kw.title %}
+            <h4>{{ form.kw.title }}</h4>
+        {% endif %}
+        {{ form.hidden_tag() }}
+        {% for field in form if not field.type == "CSRFTokenField" %}
+            {% if field.type != "SubmitField" and not form.kw.ignore_labels %}
+                {{ field.label }}
+            {% endif %}
+            {{ render_field(field, kwargs.classes) }}
+        {% endfor %}
+    </form>
+{% endmacro %}
+
+{% macro render_field(field, classes, class_str="") %}
+    {# Apply global css classes #}
+    {% set class_str = form_def["all"] %}
+
+    {# If id specific entry exists, overrite #}
+    {% if field.id in form_def %}
+        {% set class_str = form_def[field.id] %}
+    {% endif %}
+
+    {# If extra classes were passed, append #}
+    {% if classes %}
+        {% if field.id in classes %}
+            {% set class_str = class_str + " " + classes[field.id] %}
+        {% elif "all" in classes %}
+            {% set class_str = class_str + " " + classes["all"] %}
+        {% endif %}
+    {% endif %}
+
+    {# Handle field errors #}
+    {% if field.errors %}
+        {{ field(class=class_str ~ " is-invalid") }}
+        {% for error in field.errors %}
+            <span class="text-danger">{{ field.type ~ error }}</span><br/>
+        {% endfor %}
+    {% else %}
+        {{ field(class=class_str) }}
+    {% endif %}
+{% endmacro %}
