@@ -10,19 +10,19 @@
         <div class="title">Top Sellers</div>
         <div class="products">
             <div class="product-card">
-                <img src="images/shoe.jpg">
+                <img src="{{ url_for('static', filename='images/shoe.jpg') }}">
                 <div class="info-container">Product info</div>
             </div>
             <div class="product-card">
-                <img src="images/shoe.jpg">
+                <img src="{{ url_for('static', filename='images/shoe.jpg') }}">
                 <div class="info-container">Product info</div>
             </div>
             <div class="product-card">
-                <img src="images/shoe.jpg">
+                <img src="{{ url_for('static', filename='images/shoe.jpg') }}">
                 <div class="info-container">Product info</div>
             </div>
             <div class="product-card">
-                <img src="images/shoe.jpg">
+                <img src="{{ url_for('static', filename='images/shoe.jpg') }}">
                 <div class="info-container">Product info</div>
             </div>
 
@@ -32,24 +32,24 @@
         <div class="title">New Releases</div>
         <div class="products">
             <div class="product-card">
-                <img src="images/shoe.jpg">
+                <img src="{{ url_for('static', filename='images/shoe.jpg') }}">
                 <div class="info-container">Product info</div>
             </div>
             <div class="product-card">
-                <img src="images/shoe.jpg">
+                <img src="{{ url_for('static', filename='images/shoe.jpg') }}">
                 <div class="info-container">Product info</div>
             </div>
             <div class="product-card">
-                <img src="images/shoe.jpg">
+                <img src="{{ url_for('static', filename='images/shoe.jpg') }}">
                 <div class="info-container">Product info</div>
             </div>
             <div class="product-card">
-                <img src="images/shoe.jpg">
+                <img src="{{ url_for('static', filename='images/shoe.jpg') }}">
                 <div class="info-container">Product info</div>
             </div>
         </div>
     </section>
     <section class="browse">
-        <a href="#">browse sneakers</a>
+        <a href="{{ url_for('items') }}">browse sneakers</a>
     </section>
 {% endblock content %}

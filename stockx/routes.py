@@ -12,6 +12,18 @@ def index():
 def items():
     return render_template("items.jinja", items=Shoe.query.all())
 
+@app.route("/about")
+def about():
+    return render_template("about.jinja")
+
+@app.route("/contact")
+def contact():
+    return render_template("contact.jinja")
+
+@app.route("/cart")
+def cart():
+    return render_template("cart.jinja")
+
 @app.route("/insert", methods=["GET", "POST"])
 def insert():
     form = ShoeInsertForm()

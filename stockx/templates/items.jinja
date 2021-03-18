@@ -1,12 +1,12 @@
 {% extends "layout.jinja" %}
 {% block content %}
-    {% for i in items %}
-        <div class="item">
-            <div class="item-details">
-                <h4 class="item-brand">{{ i.brand }}</h4>
-                <h4 class="item-title">{{ i.name }}</h4>
-                <h4>${{i.price}}</h4>
+    <div class="products">
+        {% for i in items %}
+            <div class="product-card">
+                <img src="{{ url_for('static', filename='images/shoe.jpg') }}">
+                <div class="info-container">{{ i.brand }}</div>
+                <div class="info-container">{{ i.name }}</div>
             </div>
-        </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
 {% endblock content %}
