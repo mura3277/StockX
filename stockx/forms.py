@@ -8,3 +8,8 @@ class ShoeInsertForm(FlaskForm):
     name = StringField("Name", validators=[DataRequired(), Length(min=2, max=64)])
     price = StringField("Price", validators=[DataRequired(), Length(min=2, max=64)])
     submit = SubmitField("Submit")
+
+class SearchForm(FlaskForm):
+    kw = {"id": "search-form", "ignore_labels": True}
+    input = StringField("Search", validators=[DataRequired(), Length(min=2, max=64)])
+    submit = SubmitField("Submit")
