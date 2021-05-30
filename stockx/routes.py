@@ -1,6 +1,9 @@
-from flask import render_template
+from flask import render_template, request
+from werkzeug.exceptions import abort
+
 from stockx import app, db
-from stockx.forms import ShoeInsertForm, SearchForm
+from stockx.forms import ShoeForm, SearchForm
+from stockx.helper import to_img64
 from stockx.models import Shoe
 
 def render(template, **kwargs):
@@ -16,7 +19,7 @@ def index():
     return render("index.jinja")
 
 @app.route("/items", methods=["GET", "POST"])
-def items():
+def inventory():
     return render("items.jinja", items=Shoe.query.all())
 
 @app.route("/about")
@@ -31,12 +34,26 @@ def contact():
 def cart():
     return render("cart.jinja")
 
+"""
+Development route. Used for making inserting data easy
+
+(None) -> template
+"""
 @app.route("/insert", methods=["GET", "POST"])
 def insert():
-    form = ShoeInsertForm()
+    #Only allow this route in debug mode
+    if not app.debug:
+        abort(404)
+    form = ShoeForm()
     if form.validate_on_submit():
-        shoe = Shoe()
-        form.populate_obj(shoe)
-        db.session.add(shoe)
+        #Build and insert image files into kb object
+        img64_small = to_img64(request.files["image"], 400)
+        img64_large = to_img64(request.files["image"], -1)
+        kb = Shoe(img_small=img64_small, img_large=img64_large)
+        #Populate kb object with the data from the completed form
+        form.populate_obj(kb)
+        #Commit to the database
+        db.session.add(kb)
         db.session.commit()
-    return render_template("insert.jinja", form=form)
+        return inventory()
+    return render("insert.jinja", form=form)

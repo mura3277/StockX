@@ -5,6 +5,8 @@ class Shoe(db.Model):
     brand = db.Column(db.String(64), nullable=False)
     name = db.Column(db.String(64), nullable=False)
     price = db.Column(db.Integer, nullable=False)
+    img_small = db.Column(db.Text)
+    img_large = db.Column(db.Text)
 
     def __repr__(self):
-        return f"Shoe({self.brand}, {self.name})"
+        return f"Shoe({self.brand}, {self.name}, {self.price})"

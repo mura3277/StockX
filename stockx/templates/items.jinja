@@ -3,7 +3,7 @@
     <div class="products">
         {% for i in items %}
             <div class="product-card">
-                <img src="{{ url_for('static', filename='images/shoe.jpg') }}">
+                <img src="data:;base64,{{i.img_small}}" alt="{{i.name}}">
                 <div class="info-container">{{ i.brand }} {{ i.name }}</div>
             </div>
         {% endfor %}
