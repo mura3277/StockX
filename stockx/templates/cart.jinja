@@ -1,3 +1,40 @@
 {% extends "layout.jinja" %}
 {% block content %}
+
+<div class="cart-container">
+    <h3>Your Shopping Cart</h3>
+    <div class="cart-labels">
+
+    </div>
+    <table>
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+        </tr>
+        <tr>
+          <td class="text-image">
+              <div><img src="{{ url_for('static', filename='images/shoe.jpg') }}" width="60px" style="border-radius: 8px;">Yeezy Boost 700 "Wave Runner" sneakers</div>
+              <div class="remove">Remove</div>
+            </td>
+          <td>150£</td>
+          <td>1</td>
+          <td>150£</td>
+        </tr>
+        <tr>
+            <td class="text-image">
+                <div><img src="{{ url_for('static', filename='images/shoe.jpg') }}" width="60px" style="border-radius: 8px;">Nike Air Jordan XXXV</div>
+                <div class="remove">Remove</div>
+            </td>
+          <td>50£</td>
+          <td>3</td>
+          <td>150£</td>
+        </tr>
+      </table>
+    <div class="cart-total">
+        <h4>Subtotal: 200£</h4>
+    </div>
+</div>
+
 {% endblock content %}

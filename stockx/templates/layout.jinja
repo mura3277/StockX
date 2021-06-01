@@ -17,7 +17,7 @@
     <nav>
         <div id="nav-container">
             <div class="logo">
-                <a class="navbar-brand" href="{{ url_for('index') }}">Logo</a>
+                <a class="navbar-brand" href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" width="250px"></a>
             </div>
             <div class="navbar-main">
                 <a href="{{ url_for('index') }}">Home</a>
@@ -34,7 +34,7 @@
         {% endblock content %}
     </div>
     <footer>
-        <div class="logo">Logo</div>
+        <div class="logo"><a class="navbar-brand" href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" width="250px"></a></div>
         <div class="navbar-footer">
             <a href="#">Home</a>
             <a href="#">Brands</a>
@@ -46,7 +46,7 @@
             <i class="fab fa-twitter-square"></i>
             <i class="fab fa-facebook-square"></i>
         </div>
-        <p>Copyright &copy; 2021</p>
+        <p class="copy">Copyright &copy; 2021</p>
     </footer>
     <script src="https://kit.fontawesome.com/8cb148e688.js" crossorigin="anonymous"></script>
 </body>
