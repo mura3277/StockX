@@ -1,3 +1,20 @@
 {% extends "layout.jinja" %}
 {% block content %}
+
+<div class="about-container">
+    <h3>About Us</h3>
+    <p>Here at StockX.com, we realize that style and prosperity begin with the correct shoes. We likewise understand that effectively finding the size and style to meet your requirements is vital to your web based shopping knowledge. Since beginning our web based business website in 2009, we’ve been endeavoring to present to you that perfect shopping experience.<br><br>
+
+    We pride ourselves on conveying hard-to-discover styles, sizes and widths since we realize that each individual’s needs contrast. Regardless of whether you’re experiencing issues looking over our vast determination of different shoes or you have a straightforward inquiry, our client benefit group is prepared and willing to help.<br><br></p>
+    <div class="images-container">
+        <img src="{{ url_for('static', filename='images/about-us-photo.jpg') }}" alt="shoe" style="width: 500px; height: 400px">
+        <img src="{{ url_for('static', filename='images/about-us-photo2.jpg') }}" alt="shoe" style="width: 500px; height: 400px">
+        <img src="{{ url_for('static', filename='images/about-us-photo3.jpg') }}" alt="shoe" style="width: 500px; height: 400px">
+    </div><br><br>
+
+
+    <p style="text-align: center; font-weight: 600;">Next time you require another match of kicks for this experience we call life, our group is here to ensure that you get the execution that you require from your apparatus. Regardless of whether you are difficult to fit or have explicit requirements, let StockX.com enable you to make progress toward your objective.
+    </p>
+</div>
+
 {% endblock content %}

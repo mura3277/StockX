@@ -1,3 +1,37 @@
 {% extends "layout.jinja" %}
 {% block content %}
+<div class="contact-container">
+    <div class="contact-left-side">
+        <h3>Contact details</h3>
+        <p>We're open for suggestions <br>or just to have a chat.</p>
+        <div class="contact-icon-text"><i class="fas fa-map-marker-alt"></i><p>Aberdeen City Campus, Gallowgate,<br> Aberdeen AB25 1BN</p></div>
+        <div class="contact-icon-text"><i class="fas fa-phone"></i><p>0300 330 5550</p></div>
+        <div class="contact-icon-text"><i class="fas fa-at"></i><p>contact@stockx.com</p></div>
+    </div>
+    <div class="contact-right-side">
+        <h3>Get in touch!</h3>
+        <div class="input-container-main">
+            <form action="#">
+                <div class="input-container">
+                    <label for="fname">Full Name</label>
+                    <input type="text" id="fname" name="firstname" placeholder="Full Name">
+                </div>
+
+                <div class="input-container">
+                    <label for="lname">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Email">
+                </div>
+
+                <div class="input-container">
+                    <label for="subject">Message</label>
+                    <textarea id="subject" name="subject" placeholder="Message" style="height:200px"></textarea>      
+                </div>
+                <div class="btn-center">
+                    <input class="submit-btn" type="submit" value="Submit">
+                </div>
+
+            </form>
+          </div>
+    </div>
+</div>
 {% endblock content %}
