@@ -8,32 +8,44 @@
     </div>
     <table>
         <tr>
-          <th>Product</th>
-          <th>Price</th>
-          <th>Quantity</th>
-          <th>Total</th>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
         </tr>
-        <tr>
-          <td class="text-image">
-              <div><img src="{{ url_for('static', filename='images/shoe.jpg') }}" width="60px" style="border-radius: 8px;">Yeezy Boost 700 "Wave Runner" sneakers</div>
-              <div class="remove">Remove</div>
-            </td>
-          <td>150£</td>
-          <td>1</td>
-          <td>150£</td>
-        </tr>
-        <tr>
-            <td class="text-image">
-                <div><img src="{{ url_for('static', filename='images/shoe.jpg') }}" width="60px" style="border-radius: 8px;">Nike Air Jordan XXXV</div>
-                <div class="remove">Remove</div>
-            </td>
-          <td>50£</td>
-          <td>3</td>
-          <td>150£</td>
-        </tr>
+        {% for i in items %}
+            <tr>
+                <td class="text-image">
+                    <div><img src="data:;base64,{{i['item'].img_small}}" alt="{{i['item'].name}}" width="60px" style="border-radius: 8px;">{{i["item"].name}}</div>
+                    <form method="POST" action="{{url_for('cart', item_id=i['item'].id, count=0)}}" enctype="multipart/form-data" class="form-container">
+                        <div class="form-group">
+                            {{ rem_cart_form.hidden_tag() }}
+                            {{ rem_cart_form.submit(class_="remove") }}
+                        </div>
+                    </form>
+                </td>
+                <td>£{{i["item"].price}}</td>
+                <td class="quantity-section">
+                    {{i["quantity"]}}
+                    <form method="POST" action="{{url_for('cart', item_id=i['item'].id, count=i['quantity'] + 1)}}" enctype="multipart/form-data" class="form-container">
+                        <div class="form-group">
+                            {{ inc_cart_form.hidden_tag() }}
+                            {{ inc_cart_form.submit(class_="remove") }}
+                        </div>
+                    </form>
+                    <form method="POST" action="{{url_for('cart', item_id=i['item'].id, count=i['quantity'] - 1)}}" enctype="multipart/form-data" class="form-container">
+                        <div class="form-group">
+                            {{ dec_cart_form.hidden_tag() }}
+                            {{ dec_cart_form.submit(class_="remove") }}
+                        </div>
+                    </form>
+                </td>
+                <td>£{{i["item"].price * i["quantity"]}}</td>
+            </tr>
+        {% endfor %}
       </table>
     <div class="cart-total">
-        <h4>Subtotal: 200£</h4>
+        <h4>Subtotal: £{{subtotal}}</h4>
     </div>
 </div>
 

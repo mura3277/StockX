@@ -2,10 +2,12 @@
 {% block content %}
     <div class="products">
         {% for i in items %}
-            <div class="product-card">
-                <img src="data:;base64,{{i.img_small}}" alt="{{i.name}}">
-                <div class="info-container">{{ i.brand }} {{ i.name }}</div>
-            </div>
+            <a class="item-link" href="{{ url_for('item', item_id=i.id) }}">
+                <div class="product-card">
+                    <img src="data:;base64,{{i.img_small}}" alt="{{i.name}}">
+                    <div class="info-container">{{ i.brand }} {{ i.name }}</div>
+                </div>
+            </a>
         {% endfor %}
     </div>
 {% endblock content %}

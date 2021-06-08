@@ -43,10 +43,10 @@
 
     {# Handle field errors #}
     {% if field.errors %}
-        {{ field(class=class_str ~ " is-invalid") }}
+        {# {{ field(class=class_str ~ " is-invalid") }}
         {% for error in field.errors %}
             <span class="text-danger">{{ field.type ~ error }}</span><br/>
-        {% endfor %}
+        {% endfor %} #}
     {% else %}
         {{ field(class=class_str) }}
     {% endif %}

@@ -1,0 +1,22 @@
+{% extends "layout.jinja" %}
+{% block content %}
+    <div class="content-section">
+        <h2><a class="mr-2" href="{{ url_for('inventory', brand=item.brand) }}">{{ item.brand }}</a>{{ item.name }}</h2>
+        <hr class="divider"/>
+        <div class="item-page-container">
+            <div class="item-page-img-container">
+                <img class="item-page-img" src="data:;base64,{{item.img_large}}" alt="{{item.model}} Keyboard">
+            </div>
+           {# <h4 class="article-content">{{ item.desc }}</h4> #}
+        </div>
+        {# {% if debug %}
+            <p><a href="{{ url_for('update', item_id=item.id) }}">Update</a></p>
+        {% endif %} #}
+        <form method="POST" action="" enctype="multipart/form-data" class="form-container">
+            {{ cart_form.hidden_tag() }}
+            {{ cart_form.quantity.label }}
+            {{ cart_form.quantity(class_="form-control") }}
+            {{ cart_form.submit(class_="btn btn-primary") }}
+        </form>
+    </div>
+{% endblock content %}
