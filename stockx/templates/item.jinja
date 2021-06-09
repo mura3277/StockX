@@ -1,7 +1,7 @@
 {% extends "layout.jinja" %}
 {% block content %}
     <div class="content-section">
-        <h2 style="border-bottom: 4px solid gray; padding-bottom:10px;"><a class="mr-2" href="{{ url_for('inventory', brand=item.brand) }}">{{ item.brand }}</a>{{ item.name }}</h2>
+        <h2 style="border-bottom: 4px solid gray; padding-bottom:10px;"><a class="mr-2" href="{{ url_for('inventory', brand=item.brand) }}">{{ item.brand }}</a> {{ item.name }}</h2>
         <div class="item-page-container">
             <div class="item-page-img-container">
                 <img class="item-page-img" src="data:;base64,{{item.img_large}}" alt="{{item.model}} Keyboard" width="450">

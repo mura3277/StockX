@@ -1,6 +1,7 @@
 {% extends "layout.jinja" %}
 {% block content %}
-    <div class="products">
+    <h3 class="title">Our products</h3>
+    <div class="products" style="justify-content: center; margin-top: 50px; margin-bottom: 50px">
         {% for i in items %}
             <a class="item-link" href="{{ url_for('item', item_id=i.id) }}">
                 <div class="product-card">
