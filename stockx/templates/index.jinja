@@ -9,31 +9,14 @@
     <section class="featured-products">
         <div class="title">Top Sellers</div>
         <div class="products">
-            <a href="#">
-                <div class="product-card">
-                    <img src="{{ url_for('static', filename='images/shoe.jpg') }}">
-                    <div class="info-container">Product info</div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="product-card">
-                    <img src="{{ url_for('static', filename='images/shoe.jpg') }}">
-                    <div class="info-container">Product info</div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="product-card">
-                    <img src="{{ url_for('static', filename='images/shoe.jpg') }}">
-                    <div class="info-container">Product info</div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="product-card">
-                    <img src="{{ url_for('static', filename='images/shoe.jpg') }}">
-                    <div class="info-container">Product info</div>
-                </div>
-            </a>
-
+            {% for i in popular %}
+                <a href="#">
+                    <div class="product-card">
+                        <img src="data:;base64,{{i.img_large}}" alt="{{i.model}}">
+                        <div class="info-container">{{i.name}}</div>
+                    </div>
+                </a>
+            {% endfor %}
         </div>
     </section>
     <section class="featured-products">

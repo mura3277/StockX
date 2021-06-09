@@ -9,6 +9,7 @@ class ShoeForm(FlaskForm):
     kw = {"title": "Shoe Form", "id": "item-form"}
     brand = StringField("Brand", validators=[DataRequired(), Length(min=2, max=64)])
     name = StringField("Name", validators=[DataRequired(), Length(min=2, max=64)])
+    desc = StringField("Desc", validators=[DataRequired(), Length(min=2, max=256)])
     price = StringField("Price", validators=[DataRequired(), Length(min=2, max=64)])
     image = FileField("Image", validators=[FileAllowed(["jpg", "png", "webp"])])
     submit = SubmitField("Submit")
