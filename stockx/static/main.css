@@ -367,3 +367,35 @@ table {
 .copy {
     text-align: center;
 }
+
+/* item section */
+
+.content-section {
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.item-page-img {
+    margin: 25px 70px;
+    border-radius: 10px;
+}
+
+.item-page-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.wrap {
+    width: 550px;
+    margin-bottom: 70px;
+    text-align: justify;
+}
+
+.form-container {
+    text-align: center;
+}
