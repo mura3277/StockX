@@ -10,7 +10,7 @@
         <div class="title">Top Sellers</div>
         <div class="products">
             {% for i in popular %}
-                <a href="#">
+                <a href="{{ url_for('item', item_id=i.id) }}">
                     <div class="product-card">
                         <img src="data:;base64,{{i.img_large}}" alt="{{i.model}}">
                         <div class="info-container">{{i.name}}</div>
@@ -22,30 +22,14 @@
     <section class="featured-products">
         <div class="title">New Releases</div>
         <div class="products">
-            <a href="#">
-                <div class="product-card">
-                    <img src="{{ url_for('static', filename='images/shoe.jpg') }}">
-                    <div class="info-container">Product info</div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="product-card">
-                    <img src="{{ url_for('static', filename='images/shoe.jpg') }}">
-                    <div class="info-container">Product info</div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="product-card">
-                    <img src="{{ url_for('static', filename='images/shoe.jpg') }}">
-                    <div class="info-container">Product info</div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="product-card">
-                    <img src="{{ url_for('static', filename='images/shoe.jpg') }}">
-                    <div class="info-container">Product info</div>
-                </div>
-            </a>
+            {% for i in new %}
+                <a href="{{ url_for('item', item_id=i.id) }}">
+                    <div class="product-card">
+                        <img src="data:;base64,{{i.img_large}}" alt="{{i.model}}">
+                        <div class="info-container">{{i.name}}</div>
+                    </div>
+                </a>
+            {% endfor %}
         </div>
     </section>
     <section class="browse">

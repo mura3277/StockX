@@ -19,7 +19,8 @@ def render(template, **kwargs):
 @app.route("/")
 def index():
     popular = [Shoe.query.get_or_404(2), Shoe.query.get_or_404(3), Shoe.query.get_or_404(4), Shoe.query.get_or_404(5)]
-    return render("index.jinja", popular=popular)
+    new = [Shoe.query.get_or_404(2), Shoe.query.get_or_404(3), Shoe.query.get_or_404(4), Shoe.query.get_or_404(5)]
+    return render("index.jinja", popular=popular, new=new)
 
 @app.route("/items", methods=["GET", "POST"])
 @app.route("/items/<brand>", methods=["GET", "POST"])
