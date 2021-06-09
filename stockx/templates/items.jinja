@@ -3,7 +3,7 @@
     <h3 class="title">Our products</h3>
     <div class="products" style="justify-content: center; margin-top: 50px; margin-bottom: 50px">
         {% for i in items %}
-            <a class="item-link" href="{{ url_for('item', item_id=i.id) }}">
+            <a class="item-link" style="margin: 15px 0;" href="{{ url_for('item', item_id=i.id) }}">
                 <div class="product-card">
                     <img src="data:;base64,{{i.img_small}}" alt="{{i.name}}">
                     <div class="info-container">{{ i.brand }} {{ i.name }}</div>
