@@ -14,8 +14,8 @@
             <th>Total</th>
         </tr>
         {% for i in items %}
-            <tr>
-                <td class="text-image">
+            <tr class="cart-wrapper">
+                <td class="text-image" style="border: none;">
                     <div><img src="data:;base64,{{i['item'].img_small}}" alt="{{i['item'].name}}" width="60px" style="border-radius: 8px;">{{i["item"].name}}</div>
                     <form method="POST" action="{{url_for('cart', item_id=i['item'].id, count=0)}}" enctype="multipart/form-data" class="form-container">
                         <div class="form-group">

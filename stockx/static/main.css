@@ -301,11 +301,17 @@ table {
 }
 
 .quantity-section {
-    display:inline-block;
-    width:20%;
-    margin:0;
-    padding:0;
+    border: none;
+    display:flex;
+    align-items: center;
+    padding: 0;
+    margin:0 10px;
 }
+
+.quantity-section form {
+    margin: 0 5px;
+}
+
 /*BROWSE SECTION */
 
 .browse {
