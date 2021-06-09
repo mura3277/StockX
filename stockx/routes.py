@@ -19,7 +19,7 @@ def render(template, **kwargs):
 @app.route("/")
 def index():
     popular = [Shoe.query.get_or_404(2), Shoe.query.get_or_404(3), Shoe.query.get_or_404(4), Shoe.query.get_or_404(5)]
-    new = [Shoe.query.get_or_404(2), Shoe.query.get_or_404(3), Shoe.query.get_or_404(4), Shoe.query.get_or_404(5)]
+    new = [Shoe.query.get_or_404(6), Shoe.query.get_or_404(7), Shoe.query.get_or_404(8), Shoe.query.get_or_404(9)]
     return render("index.jinja", popular=popular, new=new)
 
 @app.route("/items", methods=["GET", "POST"])
