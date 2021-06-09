@@ -8,11 +8,13 @@ from stockx.models import Shoe
 
 def render(template, **kwargs):
     search_form = SearchForm()
+    #Get the cart count if its more than 1
+    cart_count = "" if len(get_cart()) < 1 else "(" + str(len(get_cart())) + ")"
     if search_form.validate_on_submit():
         items = Shoe.query.filter(Shoe.name.contains(search_form.input.data)).all()
-        return render_template("items.jinja", search_form=search_form, items=items)
+        return render_template("items.jinja", search_form=search_form, items=items, cart_count=cart_count)
     else:
-        return render_template(template, search_form=search_form, **kwargs)
+        return render_template(template, search_form=search_form, cart_count=cart_count, **kwargs)
 
 @app.route("/")
 def index():
